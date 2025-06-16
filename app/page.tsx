@@ -1,113 +1,434 @@
-import Image from 'next/image';
+import Image from "next/image"
+import {
+  ArrowRight,
+  Award,
+  Book,
+  Calendar,
+  CheckCircle,
+  Clock,
+  FileText,
+  GraduationCap,
+  MapPin,
+  Phone,
+  Users,
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <button className="text-blue-600 lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-menu"
+              >
+                <line x1="4" x2="20" y1="12" y2="12" />
+                <line x1="4" x2="20" y1="6" y2="6" />
+                <line x1="4" x2="20" y1="18" y2="18" />
+              </svg>
+            </button>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src="/placeholder.svg?height=40&width=150"
+              alt="Driving School Logo"
+              width={150}
+              height={40}
+              className="h-10 w-auto"
             />
-          </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-sm font-medium hidden md:inline">EN</span>
+            <Image src="/placeholder.svg?height=20&width=30" alt="Flag" width={30} height={20} className="h-5 w-auto" />
+          </div>
         </div>
-      </div>
+      </header>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
+          <source src="/vid.mp4" type="video/mp4" />
+          {/* Fallback image for browsers that don't support video */}
+          <Image
+            src="/placeholder.svg?height=500&width=1200"
+            alt="Motorcycle Training"
+            width={1200}
+            height={500}
+            className="w-full h-full object-cover"
+          />
+        </video>
+        <div className="absolute inset-0 bg-black/40 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl">
+              <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 leading-tight">
+                Master the Road with Professional Training
+              </h1>
+              <p className="text-white/90 text-lg md:text-xl mb-6">
+                Join thousands of successful graduates who learned to drive safely and confidently with our expert
+                instructors
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                  Start Your Journey
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+                >
+                  Watch Our Story
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="ml-2 h-5 w-5"
+                  >
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Video overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+      {/* School Logo Section */}
+      <section className="bg-white py-8">
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <div className="bg-blue-100 rounded-full p-6 mb-4">
+            <div className="bg-white rounded-full p-4">
+              <Image
+                src="/placeholder.svg?height=80&width=80"
+                alt="School Logo"
+                width={80}
+                height={80}
+                className="h-16 w-16"
+              />
+            </div>
+          </div>
+          <h2 className="text-xl font-bold text-center text-blue-800">Excellence Driving School</h2>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-10 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="flex flex-col items-center">
+              <GraduationCap className="h-8 w-8 text-red-500 mb-2" />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">300K+</h3>
+              <p className="text-sm text-gray-600 text-center">Graduates</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Award className="h-8 w-8 text-red-500 mb-2" />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">230K+</h3>
+              <p className="text-sm text-gray-600 text-center">Field Hours</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Clock className="h-8 w-8 text-red-500 mb-2" />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">100K+</h3>
+              <p className="text-sm text-gray-600 text-center">Training Hours</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <Users className="h-8 w-8 text-red-500 mb-2" />
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">300+</h3>
+              <p className="text-sm text-gray-600 text-center">Trainers & Instructors</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-10 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-xl font-bold text-center mb-8 text-blue-800">Comprehensive Training Programs</h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <Book className="h-6 w-6 text-blue-800" />
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-900 mb-1">Theoretical Training</h3>
+                <p className="text-sm text-gray-600">
+                  Comprehensive classroom sessions covering traffic rules and safety protocols
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <MapPin className="h-6 w-6 text-blue-800" />
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-900 mb-1">Practical Training</h3>
+                <p className="text-sm text-gray-600">
+                  Hands-on driving experience with professional instructors in real traffic conditions
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <FileText className="h-6 w-6 text-blue-800" />
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-900 mb-1">Exam Preparation</h3>
+                <p className="text-sm text-gray-600">
+                  Specialized training to help you pass both written and practical driving tests
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <Calendar className="h-6 w-6 text-blue-800" />
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-900 mb-1">Flexible Scheduling</h3>
+                <p className="text-sm text-gray-600">
+                  Choose training times that fit your schedule with morning and evening options
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <CheckCircle className="h-6 w-6 text-blue-800" />
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-900 mb-1">Certified Instructors</h3>
+                <p className="text-sm text-gray-600">
+                  Learn from experienced professionals with extensive teaching backgrounds
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
+              <div className="bg-blue-100 p-2 rounded-lg">
+                <Phone className="h-6 w-6 text-blue-800" />
+              </div>
+              <div>
+                <h3 className="font-medium text-gray-900 mb-1">24/7 Support</h3>
+                <p className="text-sm text-gray-600">
+                  Get answers to your questions anytime through our dedicated support team
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Training Process Section */}
+      <section className="py-10 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-xl font-bold text-center mb-8 text-blue-800">Our Training Process</h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <Image
+                src="/placeholder.svg?height=300&width=500"
+                alt="Training Process"
+                width={500}
+                height={300}
+                className="w-full h-auto rounded-lg"
+              />
+            </div>
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 rounded-full p-2 mt-1">
+                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
+                    1
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Registration</h3>
+                  <p className="text-sm text-gray-600">
+                    Complete your registration and choose your preferred training package
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 rounded-full p-2 mt-1">
+                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
+                    2
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Theoretical Classes</h3>
+                  <p className="text-sm text-gray-600">
+                    Attend classroom sessions to learn traffic rules and safety guidelines
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 rounded-full p-2 mt-1">
+                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
+                    3
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Practical Training</h3>
+                  <p className="text-sm text-gray-600">
+                    Get behind the wheel with our professional instructors for hands-on experience
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 rounded-full p-2 mt-1">
+                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
+                    4
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Exam Preparation</h3>
+                  <p className="text-sm text-gray-600">
+                    Receive specialized coaching to prepare for both written and practical exams
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 rounded-full p-2 mt-1">
+                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
+                    5
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">Certification</h3>
+                  <p className="text-sm text-gray-600">
+                    Successfully complete your training and receive your driving certification
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-10 bg-blue-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold mb-4">Ready to Start Your Driving Journey?</h2>
+          <p className="mb-6 max-w-2xl mx-auto">
+            Join thousands of satisfied students who have successfully obtained their driving license with us
           </p>
-        </a>
+          <Button className="bg-white text-blue-800 hover:bg-gray-100">
+            Register Now <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+      {/* Footer */}
+      <footer className="bg-gray-100 py-6">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <Image
+                src="/placeholder.svg?height=40&width=150"
+                alt="Driving School Logo"
+                width={150}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
+            <div className="flex gap-4">
+              <a href="#" className="text-gray-500 hover:text-blue-800">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-facebook"
+                >
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                </svg>
+              </a>
+              <a href="#" className="text-gray-500 hover:text-blue-800">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-twitter"
+                >
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                </svg>
+              </a>
+              <a href="#" className="text-gray-500 hover:text-blue-800">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-instagram"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" className="text-gray-500 hover:text-blue-800">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-youtube"
+                >
+                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                  <path d="m10 15 5-3-5-3z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="mt-6 text-center text-sm text-gray-500">
+            <p>© {new Date().getFullYear()} Excellence Driving School. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
 }
