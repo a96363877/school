@@ -8,7 +8,7 @@ import Image from "next/image"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" dir="rtl">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -33,15 +33,21 @@ export default function ContactPage() {
             </button>
             <Image
               src="/placeholder.svg?height=40&width=150"
-              alt="Driving School Logo"
+              alt="شعار مدرسة القيادة"
               width={150}
               height={40}
               className="h-10 w-auto"
             />
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm font-medium hidden md:inline">EN</span>
-            <Image src="/placeholder.svg?height=20&width=30" alt="Flag" width={30} height={20} className="h-5 w-auto" />
+            <span className="text-sm font-medium hidden md:inline">عربي</span>
+            <Image
+              src="/placeholder.svg?height=20&width=30"
+              alt="العلم"
+              width={30}
+              height={20}
+              className="h-5 w-auto"
+            />
           </div>
         </div>
       </header>
@@ -49,9 +55,9 @@ export default function ContactPage() {
       {/* Page Header */}
       <div className="bg-blue-800 text-white py-12">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-3xl font-bold mb-4">تواصل معنا</h1>
           <p className="max-w-2xl mx-auto">
-            Have questions or need more information? We're here to help you with all your driving training needs.
+            هل لديك أسئلة أو تحتاج إلى مزيد من المعلومات؟ نحن هنا لمساعدتك في جميع احتياجات التدريب على القيادة.
           </p>
         </div>
       </div>
@@ -61,45 +67,45 @@ export default function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-start">
             <div>
-              <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
+              <h2 className="text-2xl font-bold mb-6">تواصل معنا</h2>
               <Card className="p-6">
                 <form className="space-y-4">
                   <div className="grid gap-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="Enter your full name" />
+                    <Label htmlFor="name">الاسم الكامل</Label>
+                    <Input id="name" placeholder="أدخل اسمك الكامل" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input id="email" type="email" placeholder="Enter your email address" />
+                    <Label htmlFor="email">عنوان البريد الإلكتروني</Label>
+                    <Input id="email" type="email" placeholder="أدخل عنوان بريدك الإلكتروني" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" placeholder="Enter your phone number" />
+                    <Label htmlFor="phone">رقم الهاتف</Label>
+                    <Input id="phone" placeholder="أدخل رقم هاتفك" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input id="subject" placeholder="What is this regarding?" />
+                    <Label htmlFor="subject">الموضوع</Label>
+                    <Input id="subject" placeholder="ما هو موضوع رسالتك؟" />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea id="message" placeholder="Enter your message" rows={5} />
+                    <Label htmlFor="message">الرسالة</Label>
+                    <Textarea id="message" placeholder="أدخل رسالتك" rows={5} />
                   </div>
-                  <Button className="w-full">Send Message</Button>
+                  <Button className="w-full">إرسال الرسالة</Button>
                 </form>
               </Card>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold mb-6">معلومات الاتصال</h2>
               <div className="space-y-6">
                 <Card className="p-6 flex items-start gap-4">
                   <div className="bg-blue-100 p-3 rounded-full">
                     <MapPin className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-lg mb-1">Our Location</h3>
-                    <p className="text-gray-600">123 Driving School Avenue</p>
-                    <p className="text-gray-600">City Center, 12345</p>
+                    <h3 className="font-medium text-lg mb-1">موقعنا</h3>
+                    <p className="text-gray-600">شارع مدرسة القيادة ١٢٣</p>
+                    <p className="text-gray-600">وسط المدينة، ١٢٣٤٥</p>
                   </div>
                 </Card>
 
@@ -108,9 +114,9 @@ export default function ContactPage() {
                     <Phone className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-lg mb-1">Phone Numbers</h3>
-                    <p className="text-gray-600">Main Office: +1 (555) 123-4567</p>
-                    <p className="text-gray-600">Customer Support: +1 (555) 987-6543</p>
+                    <h3 className="font-medium text-lg mb-1">أرقام الهاتف</h3>
+                    <p className="text-gray-600">المكتب الرئيسي: ٠١١-١٢٣-٤٥٦٧</p>
+                    <p className="text-gray-600">خدمة العملاء: ٠١١-٩٨٧-٦٥٤٣</p>
                   </div>
                 </Card>
 
@@ -119,9 +125,9 @@ export default function ContactPage() {
                     <Mail className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-lg mb-1">Email Addresses</h3>
-                    <p className="text-gray-600">General Inquiries: info@drivingschool.com</p>
-                    <p className="text-gray-600">Support: support@drivingschool.com</p>
+                    <h3 className="font-medium text-lg mb-1">عناوين البريد الإلكتروني</h3>
+                    <p className="text-gray-600">الاستفسارات العامة: info@drivingschool.com</p>
+                    <p className="text-gray-600">الدعم: support@drivingschool.com</p>
                   </div>
                 </Card>
 
@@ -130,20 +136,20 @@ export default function ContactPage() {
                     <Clock className="h-6 w-6 text-blue-800" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-lg mb-1">Working Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 8:00 PM</p>
-                    <p className="text-gray-600">Saturday: 9:00 AM - 5:00 PM</p>
-                    <p className="text-gray-600">Sunday: Closed</p>
+                    <h3 className="font-medium text-lg mb-1">ساعات العمل</h3>
+                    <p className="text-gray-600">الاثنين - الجمعة: ٨:٠٠ ص - ٨:٠٠ م</p>
+                    <p className="text-gray-600">السبت: ٩:٠٠ ص - ٥:٠٠ م</p>
+                    <p className="text-gray-600">الأحد: مغلق</p>
                   </div>
                 </Card>
               </div>
 
               <div className="mt-8">
-                <h3 className="text-xl font-bold mb-4">Find Us On Map</h3>
+                <h3 className="text-xl font-bold mb-4">اعثر علينا على الخريطة</h3>
                 <div className="h-[300px] bg-gray-200 rounded-lg overflow-hidden">
                   <Image
                     src="/placeholder.svg?height=300&width=600"
-                    alt="Map Location"
+                    alt="موقع الخريطة"
                     width={600}
                     height={300}
                     className="w-full h-full object-cover"
@@ -162,7 +168,7 @@ export default function ContactPage() {
             <div className="mb-4 md:mb-0">
               <Image
                 src="/placeholder.svg?height=40&width=150"
-                alt="Driving School Logo"
+                alt="شعار مدرسة القيادة"
                 width={150}
                 height={40}
                 className="h-10 w-auto"
@@ -239,7 +245,7 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>© {new Date().getFullYear()} Excellence Driving School. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} مدرسة التميز لتعليم القيادة. جميع الحقوق محفوظة.</p>
           </div>
         </div>
       </footer>

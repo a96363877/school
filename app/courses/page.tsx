@@ -1,12 +1,12 @@
 import Image from "next/image"
-import { ArrowRight, CheckCircle } from "lucide-react"
+import { ArrowLeft, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function CoursesPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" dir="rtl">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -31,15 +31,21 @@ export default function CoursesPage() {
             </button>
             <Image
               src="/placeholder.svg?height=40&width=150"
-              alt="Driving School Logo"
+              alt="شعار مدرسة القيادة"
               width={150}
               height={40}
               className="h-10 w-auto"
             />
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm font-medium hidden md:inline">EN</span>
-            <Image src="/placeholder.svg?height=20&width=30" alt="Flag" width={30} height={20} className="h-5 w-auto" />
+            <span className="text-sm font-medium hidden md:inline">عربي</span>
+            <Image
+              src="/placeholder.svg?height=20&width=30"
+              alt="العلم"
+              width={30}
+              height={20}
+              className="h-5 w-auto"
+            />
           </div>
         </div>
       </header>
@@ -47,9 +53,9 @@ export default function CoursesPage() {
       {/* Page Header */}
       <div className="bg-blue-800 text-white py-12">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-3xl font-bold mb-4">Our Training Courses</h1>
+          <h1 className="text-3xl font-bold mb-4">دوراتنا التدريبية</h1>
           <p className="max-w-2xl mx-auto">
-            Choose from our wide range of professional driving courses designed to meet your specific needs
+            اختر من مجموعة واسعة من دورات القيادة المهنية المصممة لتلبية احتياجاتك المحددة
           </p>
         </div>
       </div>
@@ -59,118 +65,118 @@ export default function CoursesPage() {
         <div className="container mx-auto px-4">
           <Tabs defaultValue="car" className="w-full">
             <TabsList className="grid grid-cols-4 mb-8">
-              <TabsTrigger value="car">Car</TabsTrigger>
-              <TabsTrigger value="motorcycle">Motorcycle</TabsTrigger>
-              <TabsTrigger value="truck">Truck</TabsTrigger>
-              <TabsTrigger value="special">Special</TabsTrigger>
+              <TabsTrigger value="car">سيارة</TabsTrigger>
+              <TabsTrigger value="motorcycle">دراجة نارية</TabsTrigger>
+              <TabsTrigger value="truck">شاحنة</TabsTrigger>
+              <TabsTrigger value="special">خاص</TabsTrigger>
             </TabsList>
 
             <TabsContent value="car" className="space-y-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Basic Car License</h3>
-                    <p className="text-sm text-gray-500">For beginners with no prior experience</p>
+                    <h3 className="text-xl font-bold">رخصة السيارة الأساسية</h3>
+                    <p className="text-sm text-gray-500">للمبتدئين بدون خبرة سابقة</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">15 hours of theoretical training</span>
+                        <span className="text-sm">١٥ ساعة من التدريب النظري</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">20 hours of practical driving</span>
+                        <span className="text-sm">٢٠ ساعة من القيادة العملية</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Exam preparation sessions</span>
+                        <span className="text-sm">جلسات التحضير للامتحان</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Study materials included</span>
+                        <span className="text-sm">مواد الدراسة مشمولة</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$599</p>
-                      <p className="text-sm text-gray-500">All inclusive package</p>
+                      <p className="text-2xl font-bold">٥٩٩ ريال</p>
+                      <p className="text-sm text-gray-500">حزمة شاملة</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
 
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Standard Car License</h3>
-                    <p className="text-sm text-gray-500">Our most popular package</p>
+                    <h3 className="text-xl font-bold">رخصة السيارة القياسية</h3>
+                    <p className="text-sm text-gray-500">الحزمة الأكثر شعبية</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">20 hours of theoretical training</span>
+                        <span className="text-sm">٢٠ ساعة من التدريب النظري</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">30 hours of practical driving</span>
+                        <span className="text-sm">٣٠ ساعة من القيادة العملية</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Advanced maneuvers training</span>
+                        <span className="text-sm">تدريب المناورات المتقدمة</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Mock tests and exam preparation</span>
+                        <span className="text-sm">اختبارات تجريبية والتحضير للامتحان</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$799</p>
-                      <p className="text-sm text-gray-500">All inclusive package</p>
+                      <p className="text-2xl font-bold">٧٩٩ ريال</p>
+                      <p className="text-sm text-gray-500">حزمة شاملة</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
 
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Premium Car License</h3>
-                    <p className="text-sm text-gray-500">Comprehensive training experience</p>
+                    <h3 className="text-xl font-bold">رخصة السيارة المميزة</h3>
+                    <p className="text-sm text-gray-500">تجربة تدريبية شاملة</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">25 hours of theoretical training</span>
+                        <span className="text-sm">٢٥ ساعة من التدريب النظري</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">40 hours of practical driving</span>
+                        <span className="text-sm">٤٠ ساعة من القيادة العملية</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Night driving and highway training</span>
+                        <span className="text-sm">تدريب القيادة الليلية والطرق السريعة</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Defensive driving techniques</span>
+                        <span className="text-sm">تقنيات القيادة الدفاعية</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$999</p>
-                      <p className="text-sm text-gray-500">All inclusive package</p>
+                      <p className="text-2xl font-bold">٩٩٩ ريال</p>
+                      <p className="text-sm text-gray-500">حزمة شاملة</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
@@ -181,72 +187,36 @@ export default function CoursesPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Basic Motorcycle License</h3>
-                    <p className="text-sm text-gray-500">For beginners with no prior experience</p>
+                    <h3 className="text-xl font-bold">رخصة الدراجة النارية الأساسية</h3>
+                    <p className="text-sm text-gray-500">للمبتدئين بدون خبرة سابقة</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">15 hours of theoretical training</span>
+                        <span className="text-sm">١٥ ساعة من التدريب النظري</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">15 hours of practical riding</span>
+                        <span className="text-sm">١٥ ساعة من القيادة العملية</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Safety gear training</span>
+                        <span className="text-sm">تدريب معدات السلامة</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Basic maintenance knowledge</span>
+                        <span className="text-sm">معرفة الصيانة الأساسية</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$499</p>
-                      <p className="text-sm text-gray-500">All inclusive package</p>
+                      <p className="text-2xl font-bold">٤٩٩ ريال</p>
+                      <p className="text-sm text-gray-500">حزمة شاملة</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </CardFooter>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Advanced Motorcycle License</h3>
-                    <p className="text-sm text-gray-500">For experienced riders</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">10 hours of advanced theory</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">20 hours of advanced riding</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Highway and traffic navigation</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Emergency maneuvers training</span>
-                      </div>
-                    </div>
-                    <div className="mt-6">
-                      <p className="text-2xl font-bold">$699</p>
-                      <p className="text-sm text-gray-500">All inclusive package</p>
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
@@ -257,36 +227,36 @@ export default function CoursesPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Commercial Truck License</h3>
-                    <p className="text-sm text-gray-500">Professional CDL training</p>
+                    <h3 className="text-xl font-bold">رخصة الشاحنة التجارية</h3>
+                    <p className="text-sm text-gray-500">تدريب رخصة القيادة التجارية المهنية</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">40 hours of theoretical training</span>
+                        <span className="text-sm">٤٠ ساعة من التدريب النظري</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">60 hours of practical driving</span>
+                        <span className="text-sm">٦٠ ساعة من القيادة العملية</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Logistics and regulations training</span>
+                        <span className="text-sm">تدريب اللوجستيات واللوائح</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Safety and maintenance procedures</span>
+                        <span className="text-sm">إجراءات السلامة والصيانة</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$1,999</p>
-                      <p className="text-sm text-gray-500">Professional certification</p>
+                      <p className="text-2xl font-bold">١٩٩٩ ريال</p>
+                      <p className="text-sm text-gray-500">شهادة مهنية</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
@@ -297,72 +267,72 @@ export default function CoursesPage() {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Defensive Driving Course</h3>
-                    <p className="text-sm text-gray-500">Enhance your safety skills</p>
+                    <h3 className="text-xl font-bold">دورة القيادة الدفاعية</h3>
+                    <p className="text-sm text-gray-500">عزز مهارات السلامة لديك</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">10 hours of specialized training</span>
+                        <span className="text-sm">١٠ ساعات من التدريب المتخصص</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Hazard perception techniques</span>
+                        <span className="text-sm">تقنيات إدراك المخاطر</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Emergency response training</span>
+                        <span className="text-sm">تدريب الاستجابة للطوارئ</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Certificate upon completion</span>
+                        <span className="text-sm">شهادة عند الإنجاز</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$299</p>
-                      <p className="text-sm text-gray-500">Specialized training</p>
+                      <p className="text-2xl font-bold">٢٩٩ ريال</p>
+                      <p className="text-sm text-gray-500">تدريب متخصص</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
 
                 <Card>
                   <CardHeader className="pb-2">
-                    <h3 className="text-xl font-bold">Refresher Course</h3>
-                    <p className="text-sm text-gray-500">For licensed drivers</p>
+                    <h3 className="text-xl font-bold">دورة تنشيطية</h3>
+                    <p className="text-sm text-gray-500">للسائقين المرخصين</p>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">5 hours of theory refresher</span>
+                        <span className="text-sm">٥ ساعات من تنشيط النظريات</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">10 hours of practical driving</span>
+                        <span className="text-sm">١٠ ساعات من القيادة العملية</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Update on new traffic laws</span>
+                        <span className="text-sm">تحديث قوانين المرور الجديدة</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <CheckCircle className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                        <span className="text-sm">Confidence building sessions</span>
+                        <span className="text-sm">جلسات بناء الثقة</span>
                       </div>
                     </div>
                     <div className="mt-6">
-                      <p className="text-2xl font-bold">$349</p>
-                      <p className="text-sm text-gray-500">Skill enhancement</p>
+                      <p className="text-2xl font-bold">٣٤٩ ريال</p>
+                      <p className="text-sm text-gray-500">تعزيز المهارات</p>
                     </div>
                   </CardContent>
                   <CardFooter>
                     <Button className="w-full">
-                      Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
                   </CardFooter>
                 </Card>
@@ -379,7 +349,7 @@ export default function CoursesPage() {
             <div className="mb-4 md:mb-0">
               <Image
                 src="/placeholder.svg?height=40&width=150"
-                alt="Driving School Logo"
+                alt="شعار مدرسة القيادة"
                 width={150}
                 height={40}
                 className="h-10 w-auto"
@@ -456,7 +426,7 @@ export default function CoursesPage() {
             </div>
           </div>
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>© {new Date().getFullYear()} Excellence Driving School. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} مدرسة التميز لتعليم القيادة. جميع الحقوق محفوظة.</p>
           </div>
         </div>
       </footer>

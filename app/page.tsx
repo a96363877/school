@@ -1,6 +1,6 @@
 import Image from "next/image"
 import {
-  ArrowRight,
+  ArrowLeft,
   Award,
   Book,
   Calendar,
@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50" dir="rtl">
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -40,16 +40,22 @@ export default function Home() {
               </svg>
             </button>
             <Image
-              src="/placeholder.svg?height=40&width=150"
-              alt="Driving School Logo"
+              src="/site-logo.png"
+              alt="شعار مدرسة القيادة"
               width={150}
               height={40}
               className="h-10 w-auto"
             />
           </div>
           <div className="flex items-center gap-4">
-            <span className="text-sm font-medium hidden md:inline">EN</span>
-            <Image src="/placeholder.svg?height=20&width=30" alt="Flag" width={30} height={20} className="h-5 w-auto" />
+            <span className="text-sm font-medium hidden md:inline">عربي</span>
+            <Image
+              src="/Flag_of_Saudi_Arabia.svg.webp"
+              alt="العلم"
+              width={30}
+              height={20}
+              className="h-5 w-auto rounded"
+            />
           </div>
         </div>
       </header>
@@ -61,7 +67,7 @@ export default function Home() {
           {/* Fallback image for browsers that don't support video */}
           <Image
             src="/placeholder.svg?height=500&width=1200"
-            alt="Motorcycle Training"
+            alt="تدريب القيادة"
             width={1200}
             height={500}
             className="w-full h-full object-cover"
@@ -71,23 +77,22 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-2xl">
               <h1 className="text-white text-3xl md:text-5xl font-bold mb-4 leading-tight">
-                Master the Road with Professional Training
+                أتقن القيادة مع التدريب المهني
               </h1>
               <p className="text-white/90 text-lg md:text-xl mb-6">
-                Join thousands of successful graduates who learned to drive safely and confidently with our expert
-                instructors
+                انضم إلى آلاف الخريجين الناجحين الذين تعلموا القيادة بأمان وثقة مع مدربينا الخبراء
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                  Start Your Journey
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  ابدأ رحلتك
+                  <ArrowLeft className="mr-2 h-5 w-5" />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   className="bg-white/10 border-white/30 text-white hover:bg-white/20"
                 >
-                  Watch Our Story
+                  شاهد قصتنا
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -98,7 +103,7 @@ export default function Home() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="ml-2 h-5 w-5"
+                    className="mr-2 h-5 w-5"
                   >
                     <polygon points="5,3 19,12 5,21" />
                   </svg>
@@ -108,7 +113,7 @@ export default function Home() {
           </div>
         </div>
         {/* Video overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/30 to-transparent"></div>
       </section>
 
       {/* School Logo Section */}
@@ -117,15 +122,15 @@ export default function Home() {
           <div className="bg-blue-100 rounded-full p-6 mb-4">
             <div className="bg-white rounded-full p-4">
               <Image
-                src="/placeholder.svg?height=80&width=80"
-                alt="School Logo"
+                src="/site-logo.png"
+                alt="شعار المدرسة"
                 width={80}
                 height={80}
                 className="h-16 w-16"
               />
             </div>
           </div>
-          <h2 className="text-xl font-bold text-center text-blue-800">Excellence Driving School</h2>
+          <h2 className="text-xl font-bold text-center text-blue-800">مدرسة التميز لتعليم القيادة</h2>
         </div>
       </section>
 
@@ -135,23 +140,23 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="flex flex-col items-center">
               <GraduationCap className="h-8 w-8 text-red-500 mb-2" />
-              <h3 className="text-xl md:text-2xl font-bold text-gray-800">300K+</h3>
-              <p className="text-sm text-gray-600 text-center">Graduates</p>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">+٣٠٠ ألف</h3>
+              <p className="text-sm text-gray-600 text-center">خريج</p>
             </div>
             <div className="flex flex-col items-center">
               <Award className="h-8 w-8 text-red-500 mb-2" />
-              <h3 className="text-xl md:text-2xl font-bold text-gray-800">230K+</h3>
-              <p className="text-sm text-gray-600 text-center">Field Hours</p>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">+٢٣٠ ألف</h3>
+              <p className="text-sm text-gray-600 text-center">ساعة ميدانية</p>
             </div>
             <div className="flex flex-col items-center">
               <Clock className="h-8 w-8 text-red-500 mb-2" />
-              <h3 className="text-xl md:text-2xl font-bold text-gray-800">100K+</h3>
-              <p className="text-sm text-gray-600 text-center">Training Hours</p>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">+١٠٠ ألف</h3>
+              <p className="text-sm text-gray-600 text-center">ساعة تدريب</p>
             </div>
             <div className="flex flex-col items-center">
               <Users className="h-8 w-8 text-red-500 mb-2" />
-              <h3 className="text-xl md:text-2xl font-bold text-gray-800">300+</h3>
-              <p className="text-sm text-gray-600 text-center">Trainers & Instructors</p>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-800">+٣٠٠</h3>
+              <p className="text-sm text-gray-600 text-center">مدرب ومدربة</p>
             </div>
           </div>
         </div>
@@ -160,7 +165,7 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-10 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-xl font-bold text-center mb-8 text-blue-800">Comprehensive Training Programs</h2>
+          <h2 className="text-xl font-bold text-center mb-8 text-blue-800">برامج تدريبية شاملة</h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-4">
@@ -168,10 +173,8 @@ export default function Home() {
                 <Book className="h-6 w-6 text-blue-800" />
               </div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Theoretical Training</h3>
-                <p className="text-sm text-gray-600">
-                  Comprehensive classroom sessions covering traffic rules and safety protocols
-                </p>
+                <h3 className="font-medium text-gray-900 mb-1">التدريب النظري</h3>
+                <p className="text-sm text-gray-600">جلسات فصول دراسية شاملة تغطي قوانين المرور وبروتوكولات السلامة</p>
               </div>
             </div>
 
@@ -180,10 +183,8 @@ export default function Home() {
                 <MapPin className="h-6 w-6 text-blue-800" />
               </div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Practical Training</h3>
-                <p className="text-sm text-gray-600">
-                  Hands-on driving experience with professional instructors in real traffic conditions
-                </p>
+                <h3 className="font-medium text-gray-900 mb-1">التدريب العملي</h3>
+                <p className="text-sm text-gray-600">خبرة قيادة عملية مع مدربين محترفين في ظروف المرور الحقيقية</p>
               </div>
             </div>
 
@@ -192,10 +193,8 @@ export default function Home() {
                 <FileText className="h-6 w-6 text-blue-800" />
               </div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Exam Preparation</h3>
-                <p className="text-sm text-gray-600">
-                  Specialized training to help you pass both written and practical driving tests
-                </p>
+                <h3 className="font-medium text-gray-900 mb-1">التحضير للامتحان</h3>
+                <p className="text-sm text-gray-600">تدريب متخصص لمساعدتك على اجتياز الامتحانات النظرية والعملية</p>
               </div>
             </div>
 
@@ -204,10 +203,8 @@ export default function Home() {
                 <Calendar className="h-6 w-6 text-blue-800" />
               </div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Flexible Scheduling</h3>
-                <p className="text-sm text-gray-600">
-                  Choose training times that fit your schedule with morning and evening options
-                </p>
+                <h3 className="font-medium text-gray-900 mb-1">جدولة مرنة</h3>
+                <p className="text-sm text-gray-600">اختر أوقات التدريب التي تناسب جدولك مع خيارات صباحية ومسائية</p>
               </div>
             </div>
 
@@ -216,10 +213,8 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-blue-800" />
               </div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">Certified Instructors</h3>
-                <p className="text-sm text-gray-600">
-                  Learn from experienced professionals with extensive teaching backgrounds
-                </p>
+                <h3 className="font-medium text-gray-900 mb-1">مدربون معتمدون</h3>
+                <p className="text-sm text-gray-600">تعلم من محترفين ذوي خبرة مع خلفيات تعليمية واسعة</p>
               </div>
             </div>
 
@@ -228,9 +223,9 @@ export default function Home() {
                 <Phone className="h-6 w-6 text-blue-800" />
               </div>
               <div>
-                <h3 className="font-medium text-gray-900 mb-1">24/7 Support</h3>
+                <h3 className="font-medium text-gray-900 mb-1">دعم ٢٤/٧</h3>
                 <p className="text-sm text-gray-600">
-                  Get answers to your questions anytime through our dedicated support team
+                  احصل على إجابات لأسئلتك في أي وقت من خلال فريق الدعم المخصص لدينا
                 </p>
               </div>
             </div>
@@ -241,13 +236,13 @@ export default function Home() {
       {/* Training Process Section */}
       <section className="py-10 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-xl font-bold text-center mb-8 text-blue-800">Our Training Process</h2>
+          <h2 className="text-xl font-bold text-center mb-8 text-blue-800">عملية التدريب لدينا</h2>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <Image
-                src="/placeholder.svg?height=300&width=500"
-                alt="Training Process"
+              <img
+                src="/octagon-car.png"
+                alt="عملية التدريب"
                 width={500}
                 height={300}
                 className="w-full h-auto rounded-lg"
@@ -257,13 +252,25 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 rounded-full p-2 mt-1">
                   <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
-                    1
+                    ١
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Registration</h3>
+                  <h3 className="font-medium text-gray-900">التسجيل</h3>
+                  <p className="text-sm text-gray-600">أكمل تسجيلك واختر حزمة التدريب المفضلة لديك</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="bg-blue-100 rounded-full p-2 mt-1">
+                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
+                    ٢
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-900">الفصول النظرية</h3>
                   <p className="text-sm text-gray-600">
-                    Complete your registration and choose your preferred training package
+                    احضر جلسات الفصول الدراسية لتعلم قوانين المرور وإرشادات السلامة
                   </p>
                 </div>
               </div>
@@ -271,56 +278,36 @@ export default function Home() {
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 rounded-full p-2 mt-1">
                   <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
-                    2
+                    ٣
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Theoretical Classes</h3>
-                  <p className="text-sm text-gray-600">
-                    Attend classroom sessions to learn traffic rules and safety guidelines
-                  </p>
+                  <h3 className="font-medium text-gray-900">التدريب العملي</h3>
+                  <p className="text-sm text-gray-600">اجلس خلف المقود مع مدربينا المحترفين للحصول على خبرة عملية</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 rounded-full p-2 mt-1">
                   <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
-                    3
+                    ٤
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Practical Training</h3>
-                  <p className="text-sm text-gray-600">
-                    Get behind the wheel with our professional instructors for hands-on experience
-                  </p>
+                  <h3 className="font-medium text-gray-900">التحضير للامتحان</h3>
+                  <p className="text-sm text-gray-600">احصل على تدريب متخصص للتحضير للامتحانات النظرية والعملية</p>
                 </div>
               </div>
 
               <div className="flex items-start gap-3">
                 <div className="bg-blue-100 rounded-full p-2 mt-1">
                   <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
-                    4
+                    ٥
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-medium text-gray-900">Exam Preparation</h3>
-                  <p className="text-sm text-gray-600">
-                    Receive specialized coaching to prepare for both written and practical exams
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="bg-blue-100 rounded-full p-2 mt-1">
-                  <span className="flex items-center justify-center h-5 w-5 bg-blue-800 text-white rounded-full text-xs">
-                    5
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Certification</h3>
-                  <p className="text-sm text-gray-600">
-                    Successfully complete your training and receive your driving certification
-                  </p>
+                  <h3 className="font-medium text-gray-900">الشهادة</h3>
+                  <p className="text-sm text-gray-600">أكمل تدريبك بنجاح واحصل على شهادة القيادة الخاصة بك</p>
                 </div>
               </div>
             </div>
@@ -331,12 +318,10 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-10 bg-blue-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Start Your Driving Journey?</h2>
-          <p className="mb-6 max-w-2xl mx-auto">
-            Join thousands of satisfied students who have successfully obtained their driving license with us
-          </p>
+          <h2 className="text-2xl font-bold mb-4">هل أنت مستعد لبدء رحلة القيادة؟</h2>
+          <p className="mb-6 max-w-2xl mx-auto">انضم إلى آلاف الطلاب الراضين الذين حصلوا بنجاح على رخصة القيادة معنا</p>
           <Button className="bg-white text-blue-800 hover:bg-gray-100">
-            Register Now <ArrowRight className="ml-2 h-4 w-4" />
+            سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
           </Button>
         </div>
       </section>
@@ -347,8 +332,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <Image
-                src="/placeholder.svg?height=40&width=150"
-                alt="Driving School Logo"
+                src="/site-logo.png"
+                alt="شعار مدرسة القيادة"
                 width={150}
                 height={40}
                 className="h-10 w-auto"
@@ -425,7 +410,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>© {new Date().getFullYear()} Excellence Driving School. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} مدرسة التميز لتعليم القيادة. جميع الحقوق محفوظة.</p>
           </div>
         </div>
       </footer>
