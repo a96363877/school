@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image"
 import {
   ArrowLeft,
@@ -15,64 +16,23 @@ import {
 import { Button } from "@/components/ui/button"
 
 export default function Home() {
+  const handleRediract=(page:string)=>{
+window.location.href=`/${page}`
+  }
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <button className="text-blue-600 lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-menu"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
-            </button>
-            <Image
-              src="/site-logo.png"
-              alt="شعار مدرسة القيادة"
-              width={150}
-              height={40}
-              className="h-10 w-auto"
-            />
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-medium hidden md:inline">عربي</span>
-            <Image
-              src="/Flag_of_Saudi_Arabia.svg.webp"
-              alt="العلم"
-              width={30}
-              height={20}
-              className="h-5 w-auto rounded"
-            />
-          </div>
-        </div>
-      </header>
-
+     
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/vid.mp4" type="video/mp4" />
           {/* Fallback image for browsers that don't support video */}
-          <Image
-            src="/placeholder.svg?height=500&width=1200"
-            alt="تدريب القيادة"
-            width={1200}
-            height={500}
-            className="w-full h-full object-cover"
-          />
+       
         </video>
+       
+        {/* Video overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/30 to-transparent"></div>
         <div className="absolute inset-0 bg-black/40 flex items-center">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl">
@@ -83,12 +43,17 @@ export default function Home() {
                 انضم إلى آلاف الخريجين الناجحين الذين تعلموا القيادة بأمان وثقة مع مدربينا الخبراء
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button 
+                size="lg"
+                onClick={()=>{handleRediract('courses')}}
+                  className="bg-blue-600 hover:bg-blue-700 text-white">
                   ابدأ رحلتك
                   <ArrowLeft className="mr-2 h-5 w-5" />
                 </Button>
                 <Button
                   size="lg"
+                onClick={()=>{handleRediract('courses')}}
+
                   variant="outline"
                   className="bg-white/10 border-white/30 text-white hover:bg-white/20"
                 >
@@ -112,8 +77,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* Video overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/30 to-transparent"></div>
       </section>
 
       {/* School Logo Section */}
@@ -320,100 +283,15 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">هل أنت مستعد لبدء رحلة القيادة؟</h2>
           <p className="mb-6 max-w-2xl mx-auto">انضم إلى آلاف الطلاب الراضين الذين حصلوا بنجاح على رخصة القيادة معنا</p>
-          <Button className="bg-white text-blue-800 hover:bg-gray-100">
+          <Button 
+                onClick={()=>{handleRediract('courses')}}
+                className="bg-white text-blue-800 hover:bg-gray-100">
             سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
           </Button>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-100 py-6">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <Image
-                src="/site-logo.png"
-                alt="شعار مدرسة القيادة"
-                width={150}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </div>
-            <div className="flex gap-4">
-              <a href="#" className="text-gray-500 hover:text-blue-800">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-facebook"
-                >
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </a>
-              <a href="#" className="text-gray-500 hover:text-blue-800">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-twitter"
-                >
-                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-                </svg>
-              </a>
-              <a href="#" className="text-gray-500 hover:text-blue-800">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-instagram"
-                >
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-              </a>
-              <a href="#" className="text-gray-500 hover:text-blue-800">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-youtube"
-                >
-                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-                  <path d="m10 15 5-3-5-3z" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className="mt-6 text-center text-sm text-gray-500">
-            <p>© {new Date().getFullYear()} مدرسة التميز لتعليم القيادة. جميع الحقوق محفوظة.</p>
-          </div>
-        </div>
-      </footer>
+   
     </div>
   )
 }
