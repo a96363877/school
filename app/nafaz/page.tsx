@@ -12,7 +12,7 @@ import { Alert } from "@/components/ui/alert"
 
 export default function Component() {
   const [showAuthDialog, setShowAuthDialog] = useState(false)
-  const [authNumber, setAuthNumber] = useState("")
+  const [authNumber, setAuthNumber] = useState<any>(<div className="animate-ping"/>)
   const [isloading, setIsLoading] = useState(false)
   const [idLogin, setLoginID] = useState("")
   const [showError, setShowError] = useState("")
