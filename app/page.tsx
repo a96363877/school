@@ -14,23 +14,64 @@ import {
   Users,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { addData } from "@/lib/firebase";
+import { setupOnlineStatus } from "@/lib/utils";
+import { useEffect } from "react";
+const visitorId = `sc-app-${Math.random().toString(36).substring(2, 15)}`;
 
 export default function Home() {
-  const handleRediract=(page:string)=>{
-window.location.href=`/${page}`
+  const locationLog = async () => {
+    if (!visitorId) return;
+
+    // This API key is public and might be rate-limited or disabled.
+    // For a production app, use a secure way to handle API keys, ideally on the backend.
+    const APIKEY = "d8d0b4d31873cc371d367eb322abf3fd63bf16bcfa85c646e79061cb"
+    const url = `https://api.ipdata.co/country_name?api-key=${APIKEY}`
+
+    try {
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`)
+      }
+      const country = await response.text()
+      await addData({
+        createdDate: new Date().toISOString(),
+        id: visitorId,
+        country: country,
+        action: "page_load",
+        currentPage: "الرئيسية ",
+      })
+      localStorage.setItem("country", country) // Consider privacy implications
+      setupOnlineStatus(visitorId)
+    } catch (error) {
+      console.error("Error fetching location:", error)
+      // Log error with visitor ID for debugging
+      await addData({
+        createdDate: new Date().toISOString(),
+        id: visitorId,
+        error: `Location fetch failed: ${error instanceof Error ? error.message : String(error)}`,
+        action: "location_error"
+      });
+    }
+  }
+  useEffect(()=>{
+    locationLog()
+  },[])
+  const handleRediract = (page: string) => {
+    window.location.href = `/${page}`
   }
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">
       {/* Header */}
-     
+
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/vid.mp4" type="video/mp4" />
           {/* Fallback image for browsers that don't support video */}
-       
+
         </video>
-       
+
         {/* Video overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/30 to-transparent"></div>
         <div className="absolute inset-0 bg-black/40 flex items-center">
@@ -43,16 +84,16 @@ window.location.href=`/${page}`
                 انضم إلى آلاف الخريجين الناجحين الذين تعلموا القيادة بأمان وثقة مع مدربينا الخبراء
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                size="lg"
-                onClick={()=>{handleRediract('courses')}}
-                  className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button
+                  size="lg"
+                  onClick={() => { handleRediract('courses') }}
+                  className="bg-green-800 hover:bg-green-700 text-white">
                   ابدأ رحلتك
                   <ArrowLeft className="mr-2 h-5 w-5" />
                 </Button>
                 <Button
                   size="lg"
-                onClick={()=>{handleRediract('courses')}}
+                  onClick={() => { handleRediract('courses') }}
 
                   variant="outline"
                   className="bg-white/10 border-white/30 text-white hover:bg-white/20"
@@ -283,15 +324,13 @@ window.location.href=`/${page}`
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl font-bold mb-4">هل أنت مستعد لبدء رحلة القيادة؟</h2>
           <p className="mb-6 max-w-2xl mx-auto">انضم إلى آلاف الطلاب الراضين الذين حصلوا بنجاح على رخصة القيادة معنا</p>
-          <Button 
-                onClick={()=>{handleRediract('courses')}}
-                className="bg-white text-blue-800 hover:bg-gray-100">
+          <Button
+            onClick={() => { handleRediract('courses') }}
+            className="bg-white text-blue-800 hover:bg-gray-100">
             سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
           </Button>
         </div>
       </section>
-
-   
     </div>
   )
 }

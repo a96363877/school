@@ -9,7 +9,6 @@ declare global {
     CRISP_WEBSITE_ID: string
   }
 }
-
 export default function CrispChat() {
   useEffect(() => {
     // Initialize Crisp configuration

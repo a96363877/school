@@ -6,12 +6,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
 
 export default function CoursesPage() {
-  const handleNafaz = () => {
-    window.location.href = "/nafaz"
-  }
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">
-
       {/* Page Header */}
       <div className="bg-green-800 text-white py-12">
         <div className="container mx-auto px-4 text-center">
@@ -65,9 +61,11 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700" onClick={() => { handleNafaz() }}>
+                    <Link className="w-full" href={'/nafaz'}>
+                    <Button className="w-full bg-green-700">
                       سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
                     </Button>
+                    </Link>
                   </CardFooter>
                 </Card>
 
@@ -101,9 +99,13 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700"  onClick={() => { handleNafaz() }}>
-                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
-                    </Button>
+                    <Link href={'/nafaz'} className="w-full">
+
+                      <Button className="w-full bg-green-700" >
+                        سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+
                   </CardFooter>
                 </Card>
 
@@ -137,9 +139,13 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700"  onClick={() => { handleNafaz() }}>
-                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
-                    </Button>
+                    <Link href={'/nafaz'} className="w-full">
+
+                      <Button className="w-full bg-green-700" >
+                        سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+
                   </CardFooter>
                 </Card>
               </div>
@@ -177,9 +183,12 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700"  onClick={() => { handleNafaz() }}>
-                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
-                    </Button>
+                    <Link href={'/nafaz'} className="w-full">
+
+                      <Button className="w-full bg-green-700" >
+                        سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </CardFooter>
                 </Card>
               </div>
@@ -217,9 +226,13 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700"  onClick={() => { handleNafaz() }}>
-                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
-                    </Button>
+                    <Link href={'/nafaz'} className="w-full">
+
+                      <Button className="w-full bg-green-700" >
+                        سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+
                   </CardFooter>
                 </Card>
               </div>
@@ -257,9 +270,13 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700"  onClick={() => { handleNafaz() }}>
-                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
-                    </Button>
+                    <Link href={'/nafaz'} className="w-full">
+
+                      <Button className="w-full bg-green-700" >
+                        سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+
                   </CardFooter>
                 </Card>
 
@@ -293,9 +310,13 @@ export default function CoursesPage() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-green-700"  onClick={() => { handleNafaz() }}>
-                      سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
-                    </Button>
+                    <Link href={'/nafaz'} className="w-full">
+
+                      <Button className="w-full bg-green-700" >
+                        سجل الآن <ArrowLeft className="mr-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+
                   </CardFooter>
                 </Card>
               </div>

