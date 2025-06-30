@@ -65,7 +65,7 @@ export default function Home() {
       {/* Header */}
 
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+      <section className="relative h-[100vh] md:h-[500px] overflow-hidden">
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src="/vid.mp4" type="video/mp4" />
           {/* Fallback image for browsers that don't support video */}
